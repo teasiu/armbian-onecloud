@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - main
+      - readme
     paths:
       - .github/workflows/ci.yml
 
@@ -14,8 +14,8 @@ env:
   UBOOT_REPO: hzyitc/u-boot-onecloud
   UBOOT_RELEASE: latest
   UBOOT_BURNIMG: eMMC.burn.img
-  ARMBIAN_REPO: armbian/build
-  ARMBIAN_REF: master
+  ARMBIAN_REPO: hzyitc/armbian-onecloud
+  ARMBIAN_REF: meson-bump
 
 jobs:
   prepare:
@@ -83,7 +83,6 @@ jobs:
         BRANCH:
           - edge
           - current
-          - legacy
 
     steps:
       - name: Import env
@@ -124,7 +123,6 @@ jobs:
         BRANCH:
           - edge
           - current
-          - legacy
         RELEASE:
           # - focal # Ubuntu 20.04 LTS
           - jammy # Ubuntu 22.04 LTS
